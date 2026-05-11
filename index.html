@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Creedom — The AI growth coach behind 62,871 creators.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4efe4;
+    --paper-2:#ece5d2;
+    --ink:#0c0b08;
+    --ink-2:#1a1814;
+    --muted:#6b6657;
+    --line:#1a18141a;
+    --lime:#d6ff3a;
+    --burn:#e85d2c;
+    --plum:#5a2a8a;
+    --sky:#5e8bff;
+    --r-md:18px;
+    --r-lg:28px;
+    --r-pill:999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:"Space Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden}
+  .display{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;letter-spacing:-0.035em;line-height:0.92;font-variation-settings:"opsz" 96}
+  .mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:500;letter-spacing:0.02em}
+  .eyebrow{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--paper) 92%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;gap:28px;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:10px;font-family:"Bricolage Grotesque";font-weight:700;font-size:22px;letter-spacing:-0.02em}
+  .brand-mark{width:30px;height:30px;border-radius:50%;background:var(--ink);position:relative}
+  .brand-mark::before,.brand-mark::after{content:"";width:5px;height:5px;background:var(--lime);border-radius:50%;position:absolute;top:11px}
+  .brand-mark::before{left:8px}.brand-mark::after{right:8px}
+  .brand-mark span{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:10px;height:3px;background:var(--lime);border-radius:3px}
+  .nav-links{display:flex;gap:24px;margin-left:14px;font-size:14px;font-weight:500}
+  .nav-links a:hover{color:var(--burn)}
+  .nav-cta{margin-left:auto;display:flex;gap:8px;align-items:center}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:var(--r-pill);font-weight:600;font-size:15px;transition:transform .15s,background .15s;white-space:nowrap}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-ink{background:var(--ink);color:var(--lime)}
+  .btn-lime{background:var(--lime);color:var(--ink)}
+  .btn-lime:hover{background:#c4ed20}
+  .btn-burn{background:var(--burn);color:#fff}
+  .btn-ghost{background:transparent;color:var(--ink-2);border:1px solid var(--ink-2)}
+  .btn-ghost-l{background:transparent;color:#f6f1e3;border:1px solid #ffffff44}
+  .btn-sm{padding:10px 16px;font-size:14px}
+  .btn .arrow{transition:transform .2s;display:inline-block}
+  .btn:hover .arrow{transform:translateX(3px)}
+
+  /* ====== HERO ====== */
+  .hero{padding:56px 0 90px;position:relative;text-align:center}
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--paper);padding:7px 14px;border-radius:var(--r-pill);font-size:13px;font-weight:500;margin-bottom:28px}
+  .hero-badge .dot{width:8px;height:8px;background:var(--lime);border-radius:50%;box-shadow:0 0 0 4px #d6ff3a30}
+  .hero h1{font-size:clamp(56px,9vw,140px);max-width:1100px;margin:0 auto 22px}
+  .hero h1 .acc{color:var(--burn);position:relative;display:inline-block}
+  .hero h1 .acc::after{content:"";position:absolute;left:-4px;right:-4px;bottom:6px;height:14px;background:#ffd9c8;z-index:-1;border-radius:4px;transform:skew(-3deg)}
+  .hero .lede{font-size:21px;line-height:1.45;color:var(--ink-2);max-width:680px;margin:0 auto 32px;font-weight:400}
+  .hero .lede b{font-weight:600}
+  .hero .ctas{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:24px}
+  .hero .below{display:inline-flex;align-items:center;gap:14px;font-size:13px;color:var(--muted);justify-content:center;flex-wrap:wrap}
+  .ava-stack{display:flex}
+  .ava-stack span{width:32px;height:32px;border-radius:50%;border:3px solid var(--paper);margin-left:-10px}
+  .ava-stack span:nth-child(1){margin-left:0;background:linear-gradient(135deg,#e85d2c,#a83910)}
+  .ava-stack span:nth-child(2){background:linear-gradient(135deg,#5a2a8a,#2a0f4a)}
+  .ava-stack span:nth-child(3){background:linear-gradient(135deg,#d6ff3a,#7ea918)}
+  .ava-stack span:nth-child(4){background:linear-gradient(135deg,#5e8bff,#1a3a8a)}
+  .ava-stack span:nth-child(5){background:linear-gradient(135deg,#1f8a5b,#0e3d28)}
+  .stars{color:var(--burn);letter-spacing:1px;font-size:16px}
+
+  /* Hero artifact — phone + side cards */
+  .hero-stage{margin-top:64px;position:relative;height:580px;display:flex;justify-content:center;align-items:center}
+  .stage-blob{position:absolute;width:760px;height:480px;border-radius:50%;background:radial-gradient(circle at 50% 50%, #ffd9c8 0%, transparent 60%);filter:blur(20px);top:50px}
+  .phone{position:relative;width:310px;height:560px;background:var(--ink);border-radius:46px;padding:13px;box-shadow:0 40px 80px -20px rgba(20,15,5,0.35),0 0 0 1px var(--ink);z-index:3}
+  .phone-screen{width:100%;height:100%;background:#161410;border-radius:34px;overflow:hidden;display:flex;flex-direction:column;color:#f6f1e3;position:relative}
+  .phone-notch{position:absolute;top:16px;left:50%;transform:translateX(-50%);width:96px;height:24px;background:#000;border-radius:14px;z-index:4}
+  .ps-status{display:flex;justify-content:space-between;padding:14px 24px 6px;font-family:"JetBrains Mono",monospace;font-size:11px;color:#f6f1e3aa}
+  .ps-head{padding:18px 18px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #ffffff10}
+  .ps-ava{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--lime),#7ea918);position:relative;flex-shrink:0}
+  .ps-ava::before,.ps-ava::after{content:"";position:absolute;width:5px;height:5px;background:var(--ink);border-radius:50%;top:14px}
+  .ps-ava::before{left:11px}.ps-ava::after{right:11px}
+  .ps-head .who b{font-size:14px;display:block}
+  .ps-head .who small{font-size:11px;color:#9c9685}
+  .ps-online{margin-left:auto;font-size:10px;color:#1f8a5b}
+  .ps-body{flex:1;padding:14px 14px 12px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+  .bubble{padding:10px 14px;border-radius:18px;font-size:12.5px;line-height:1.45;max-width:88%}
+  .bubble.them{background:#252118;color:#f6f1e3;border-bottom-left-radius:4px}
+  .bubble.me{background:var(--lime);color:var(--ink);align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+  .bubble.card{background:#22201a;border:1px solid #ffffff10;padding:12px;border-radius:14px;font-size:11.5px;max-width:100%}
+  .bubble.card .ti{font-weight:600;font-size:12px;margin-bottom:8px}
+  .bubble.card .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .bubble.card .tile{background:#161410;padding:8px 10px;border-radius:8px}
+  .bubble.card .tile .lab{font-family:"JetBrains Mono",monospace;font-size:9px;color:#9c9685;letter-spacing:0.1em;text-transform:uppercase}
+  .bubble.card .tile .v{font-family:"Bricolage Grotesque";font-size:22px;font-weight:700;letter-spacing:-0.02em;line-height:1;color:var(--lime);margin-top:2px}
+  .bubble.card .tile .v.lo{color:var(--burn)}
+  .ps-input{padding:10px 14px;border-top:1px solid #ffffff10;display:flex;gap:8px;align-items:center}
+  .ps-input .field{flex:1;background:#252118;border-radius:var(--r-pill);padding:9px 14px;font-size:12px;color:#9c9685}
+  .ps-input .send{width:34px;height:34px;border-radius:50%;background:var(--lime);display:grid;place-items:center;color:var(--ink);font-weight:700}
+
+  /* floating chips */
+  .chip{position:absolute;background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:14px 16px;box-shadow:0 20px 40px -20px rgba(20,15,5,0.18);z-index:4}
+  .chip .eyebrow{margin-bottom:4px;font-size:10px}
+  .chip .big{font-family:"Bricolage Grotesque";font-weight:700;font-size:28px;letter-spacing:-0.02em;line-height:1}
+  .chip .big .up{color:#1f8a5b;font-size:14px;margin-left:6px}
+  .chip-l{top:60px;left:calc(50% - 360px);width:220px}
+  .chip-l2{bottom:80px;left:calc(50% - 380px);width:240px}
+  .chip-r{top:30px;right:calc(50% - 360px);width:220px}
+  .chip-r2{bottom:110px;right:calc(50% - 380px);width:240px}
+
+  /* ====== TRUST BAND ====== */
+  .trust{padding:30px 0;background:var(--ink);color:var(--paper);overflow:hidden;position:relative}
+  .trust-track{display:flex;gap:60px;align-items:center;animation:scroll 30s linear infinite;white-space:nowrap}
+  .trust-track span{font-family:"Bricolage Grotesque";font-size:26px;font-weight:600;letter-spacing:-0.02em;color:#f6f1e3}
+  .trust-track .dot{color:var(--lime);font-size:14px}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* ====== STATS STRIP ====== */
+  .stats{padding:60px 0;border-bottom:1px solid var(--line)}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{padding:12px 24px;border-left:1px solid var(--line)}
+  .stat:first-child{border-left:none;padding-left:0}
+  .stat .big{font-family:"Bricolage Grotesque";font-weight:700;font-size:64px;letter-spacing:-0.04em;line-height:0.9}
+  .stat .lab{font-size:14px;color:var(--muted);margin-top:10px;line-height:1.3;max-width:200px}
+
+  /* ====== "DOES THIS SOUND LIKE YOU" ====== */
+  .pain{padding:120px 0;background:var(--ink);color:var(--paper);text-align:center}
+  .pain h2{font-size:clamp(48px,7vw,96px);max-width:980px;margin:0 auto}
+  .pain h2 .acc{color:var(--burn)}
+  .pain-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1000px;margin:60px auto 0}
+  .pain-item{padding:22px;border:1px solid #ffffff20;border-radius:var(--r-md);font-size:17px;font-weight:500;text-align:left;display:flex;gap:14px;align-items:flex-start}
+  .pain-item .x{color:var(--burn);font-size:22px;line-height:1;font-weight:700;flex-shrink:0}
+  .pain-cta{margin-top:48px}
+  .pain-cta p{font-size:21px;color:#d9d3c1;margin-bottom:20px}
+
+  /* ====== FEATURES — BIG BLOCKS ====== */
+  .features{padding:140px 0}
+  .feat-head{text-align:center;margin-bottom:60px}
+  .feat-head .eyebrow{margin-bottom:18px}
+  .feat-head h2{font-size:clamp(48px,7vw,96px);max-width:980px;margin:0 auto 18px}
+  .feat-head h2 .acc{color:var(--burn);font-style:italic;font-weight:600}
+  .feat-head p{font-size:19px;color:var(--ink-2);max-width:620px;margin:0 auto;line-height:1.5}
+
+  .feat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+  .feat{border-radius:var(--r-lg);padding:32px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden;min-height:380px;border:1px solid var(--line)}
+  .feat.bg-paper{background:#fff}
+  .feat.bg-lime{background:var(--lime);color:var(--ink);border-color:transparent}
+  .feat.bg-ink{background:var(--ink);color:var(--paper);border-color:transparent}
+  .feat.bg-burn{background:var(--burn);color:#fff;border-color:transparent}
+  .feat.bg-plum{background:var(--plum);color:#fff;border-color:transparent}
+  .feat.bg-sky{background:var(--sky);color:#fff;border-color:transparent}
+  .feat .tag{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;opacity:0.7}
+  .feat h3{font-family:"Bricolage Grotesque";font-weight:700;font-size:30px;letter-spacing:-0.02em;line-height:1.05}
+  .feat p{font-size:15px;line-height:1.5;opacity:0.85}
+  .feat .vis{margin-top:auto;height:170px;border-radius:var(--r-md);position:relative;overflow:hidden}
+
+  .feat.span-3{grid-column:span 3}
+  .feat.span-2{grid-column:span 2}
+  .feat.span-4{grid-column:span 4}
+  .feat.span-6{grid-column:span 6}
+
+  /* visual treatments */
+  .vis-chat{background:rgba(0,0,0,0.18);padding:14px;display:flex;flex-direction:column;gap:6px;justify-content:flex-end}
+  .vis-chat .b{padding:7px 12px;border-radius:12px;font-size:12px;max-width:75%;line-height:1.4}
+  .vis-chat .b.them{background:rgba(255,255,255,0.18);align-self:flex-start;border-bottom-left-radius:3px}
+  .vis-chat .b.me{background:#fff;color:var(--ink);align-self:flex-end;border-bottom-right-radius:3px;font-weight:500}
+  .vis-score{background:rgba(0,0,0,0.15);padding:18px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+  .vis-score .grade{display:flex;align-items:baseline;gap:14px}
+  .vis-score .grade b{font-family:"Bricolage Grotesque";font-size:80px;line-height:0.85;font-weight:700;letter-spacing:-0.04em}
+  .vis-score .grade small{font-size:13px;opacity:0.8;max-width:120px;line-height:1.3}
+  .vis-script{background:#fff;color:var(--ink);padding:16px;font-family:"JetBrains Mono",monospace;font-size:11.5px;line-height:1.7}
+  .vis-script .h{color:var(--burn);font-weight:600;font-size:10px;letter-spacing:0.14em;margin-bottom:4px}
+  .vis-script .hk{background:#ffd9c8;padding:1px 4px;border-radius:3px}
+  .vis-ideas{padding:14px;display:flex;flex-direction:column;gap:8px}
+  .vis-ideas .row{padding:10px 12px;background:rgba(255,255,255,0.12);border-radius:10px;font-size:13px;font-weight:500;line-height:1.3}
+  .vis-ideas .row b{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;opacity:0.8;font-weight:500;letter-spacing:0.1em;margin-top:4px;text-transform:uppercase}
+  .vis-graph{background:#fff;color:var(--ink);padding:18px;display:flex;flex-direction:column}
+  .vis-edit{background:#fff;color:var(--ink);padding:14px;font-family:"JetBrains Mono",monospace;font-size:11px;line-height:1.8}
+  .vis-edit .ts{color:var(--burn);font-weight:600}
+  .vis-edit .cut{background:var(--ink);color:var(--lime);padding:1px 5px;border-radius:3px;font-weight:600;font-size:10px;margin-right:4px}
+  .vis-twin{display:grid;place-items:center;background:radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 0, transparent 70%)}
+  .vis-twin .orb{width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0%,var(--lime) 35%,var(--burn) 100%);box-shadow:0 0 0 6px rgba(255,255,255,0.15),0 20px 60px -20px rgba(0,0,0,0.4);position:relative}
+  .vis-twin .orb::before,.vis-twin .orb::after{content:"";position:absolute;width:14px;height:14px;background:var(--ink);border-radius:50%;top:52px}
+  .vis-twin .orb::before{left:38px}.vis-twin .orb::after{right:38px}
+
+  /* ====== HOW IT WORKS (3 steps) ====== */
+  .how{padding:120px 0;background:var(--lime);color:var(--ink);text-align:center}
+  .how h2{font-size:clamp(48px,7vw,96px);max-width:900px;margin:0 auto 14px}
+  .how p.sub{font-size:19px;max-width:620px;margin:0 auto 64px;line-height:1.5}
+  .how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;text-align:left}
+  .how-step{padding:32px;background:var(--ink);color:var(--paper);border-radius:var(--r-lg);display:flex;flex-direction:column;gap:14px;min-height:300px}
+  .how-step .num{font-family:"Bricolage Grotesque";font-size:88px;line-height:0.85;font-weight:700;letter-spacing:-0.04em;color:var(--lime);margin-bottom:14px}
+  .how-step h3{font-family:"Bricolage Grotesque";font-size:28px;font-weight:600;letter-spacing:-0.02em;line-height:1.1}
+  .how-step p{font-size:15px;line-height:1.55;color:#d9d3c1}
+  .how-step .nb{margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:11px;color:#9c9685;letter-spacing:0.1em;text-transform:uppercase}
+  .how-cta{margin-top:56px}
+
+  /* ====== CREATOR SHOWCASE ====== */
+  .show{padding:120px 0}
+  .show-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:48px;flex-wrap:wrap}
+  .show-head h2{font-size:clamp(44px,5.5vw,72px);max-width:700px}
+  .show-head p{font-size:16px;color:var(--muted);max-width:380px;line-height:1.5}
+  .show-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .show-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column}
+  .show-card .photo{aspect-ratio:1.2;background:repeating-linear-gradient(45deg,var(--paper-2),var(--paper-2) 6px,var(--paper) 6px,var(--paper) 12px);position:relative;display:flex;align-items:flex-end;padding:18px;color:var(--ink)}
+  .show-card .photo.a{background-image:linear-gradient(135deg,#ffd9c8 0%,#ff9870 100%)}
+  .show-card .photo.b{background-image:linear-gradient(135deg,#d8ff8a 0%,#5e8b3a 100%)}
+  .show-card .photo.c{background-image:linear-gradient(135deg,#c4a8ff 0%,#5a2a8a 100%)}
+  .show-card .photo .ph-label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:5px 9px;border-radius:4px}
+  .show-card .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .show-card .who{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
+  .show-card .who b{font-size:16px;color:var(--ink);font-weight:600}
+  .show-card .quote{font-family:"Bricolage Grotesque";font-size:22px;font-weight:500;letter-spacing:-0.01em;line-height:1.2}
+  .show-card .quote em{font-style:italic;color:var(--burn)}
+  .show-card .nums{display:flex;gap:18px;padding-top:14px;border-top:1px solid var(--line);margin-top:auto}
+  .show-card .nums .n b{font-family:"Bricolage Grotesque";font-size:22px;font-weight:700;letter-spacing:-0.02em;display:block;line-height:1}
+  .show-card .nums .n small{font-size:11px;color:var(--muted);font-family:"JetBrains Mono",monospace;letter-spacing:0.08em;text-transform:uppercase}
+
+  /* ====== COMPARISON ====== */
+  .compare{padding:120px 0;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .compare h2{font-size:clamp(48px,6vw,80px);max-width:780px;margin-bottom:48px}
+  .compare h2 .acc{color:var(--burn);font-style:italic;font-weight:600}
+  .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .compare-col{padding:36px;border-radius:var(--r-lg)}
+  .compare-col.bad{background:#fff;border:1px solid var(--line)}
+  .compare-col.good{background:var(--ink);color:var(--paper)}
+  .compare-col h3{font-family:"Bricolage Grotesque";font-size:28px;font-weight:600;letter-spacing:-0.02em;margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  .compare-col.good h3 .pill{background:var(--lime);color:var(--ink);font-size:11px;padding:3px 9px;border-radius:var(--r-pill);font-weight:600;letter-spacing:0.04em}
+  .compare-col ul{list-style:none;display:flex;flex-direction:column;gap:2px}
+  .compare-col li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:14px;font-size:16px;line-height:1.4}
+  .compare-col.good li{border-bottom-color:#ffffff14}
+  .compare-col li:last-child{border-bottom:none}
+  .compare-col li .mk{flex-shrink:0;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;width:22px;text-align:center;padding-top:2px}
+  .compare-col.bad li .mk{color:var(--burn)}
+  .compare-col.good li .mk{color:var(--lime)}
+
+  /* ====== TESTIMONIALS WALL ====== */
+  .testi{padding:140px 0}
+  .testi h2{font-size:clamp(48px,6vw,84px);max-width:880px;margin-bottom:60px;text-align:center;margin-left:auto;margin-right:auto}
+  .testi h2 .acc{color:var(--burn);font-style:italic;font-weight:600}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .quote{padding:24px;border-radius:var(--r-md);display:flex;flex-direction:column;gap:14px;border:1px solid var(--line)}
+  .quote.q-paper{background:#fff}
+  .quote.q-ink{background:var(--ink);color:var(--paper);border-color:transparent}
+  .quote.q-lime{background:var(--lime);color:var(--ink);border-color:transparent}
+  .quote.q-burn{background:var(--burn);color:#fff;border-color:transparent}
+  .quote.q-plum{background:var(--plum);color:#fff;border-color:transparent}
+  .quote p{font-size:17px;line-height:1.45;font-weight:500}
+  .quote.big p{font-size:26px;font-family:"Bricolage Grotesque";font-weight:500;letter-spacing:-0.01em;line-height:1.2}
+  .quote .who{display:flex;align-items:center;gap:10px;margin-top:auto}
+  .quote .who .ava{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#e85d2c,#a83910);flex-shrink:0}
+  .quote .who b{font-size:14px;font-weight:600;display:block;line-height:1.2}
+  .quote .who small{font-size:11.5px;opacity:0.7;font-family:"JetBrains Mono",monospace;letter-spacing:0.04em}
+  .quote.span-2{grid-column:span 2}
+
+  /* ====== PRICING TEASER ====== */
+  .price{padding:140px 0;background:var(--ink);color:var(--paper);text-align:center}
+  .price h2{font-size:clamp(48px,7vw,96px);max-width:880px;margin:0 auto 18px}
+  .price h2 .acc{color:var(--lime)}
+  .price p.sub{font-size:19px;color:#d9d3c1;max-width:560px;margin:0 auto 56px;line-height:1.5}
+  .price-card{max-width:520px;margin:0 auto;background:#1a1814;border:1px solid #ffffff14;border-radius:var(--r-lg);padding:40px;text-align:left;position:relative;overflow:hidden}
+  .price-card::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;border-radius:50%;background:var(--lime);filter:blur(50px);opacity:0.5}
+  .price-card .tier{position:relative;display:inline-block;background:var(--lime);color:var(--ink);padding:5px 12px;border-radius:var(--r-pill);font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px}
+  .price-card h3{position:relative;font-family:"Bricolage Grotesque";font-size:42px;font-weight:700;letter-spacing:-0.02em;line-height:1;margin-bottom:8px}
+  .price-card .row{position:relative;display:flex;align-items:baseline;gap:10px;margin-top:20px;margin-bottom:6px}
+  .price-card .big{font-family:"Bricolage Grotesque";font-size:80px;line-height:0.85;font-weight:700;letter-spacing:-0.04em}
+  .price-card .strike{text-decoration:line-through;color:#7a7560;font-size:24px}
+  .price-card .per{color:#9c9685;font-size:14px}
+  .price-card .micro{position:relative;font-family:"JetBrains Mono",monospace;font-size:12px;color:#9c9685;margin-bottom:24px;letter-spacing:0.08em}
+  .price-card ul{position:relative;list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+  .price-card li{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:#e6e0cc;line-height:1.4}
+  .price-card li::before{content:"✓";color:var(--lime);font-weight:700;flex-shrink:0}
+  .price-card .btn{position:relative;width:100%;justify-content:center}
+  .price-foot{margin-top:24px;font-size:13px;color:#9c9685}
+
+  /* ====== FAQ ====== */
+  .faq{padding:140px 0}
+  .faq-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:flex-start}
+  .faq h2{font-size:clamp(48px,6vw,72px);position:sticky;top:120px}
+  .faq h2 .acc{color:var(--burn);font-style:italic;font-weight:600}
+  .faq-list{display:flex;flex-direction:column;border-top:1px solid var(--ink)}
+  .faq-item{border-bottom:1px solid var(--ink);padding:24px 0;cursor:pointer}
+  .faq-item summary{display:flex;align-items:flex-start;gap:18px;font-family:"Bricolage Grotesque";font-size:22px;font-weight:600;letter-spacing:-0.01em;list-style:none;line-height:1.2}
+  .faq-item summary::-webkit-details-marker{display:none}
+  .faq-item .sign{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:22px;width:24px;text-align:center;transition:transform .2s}
+  .faq-item[open] .sign{transform:rotate(45deg)}
+  .faq-item .answer{margin-top:14px;color:var(--ink-2);font-size:16px;line-height:1.55;max-width:640px}
+
+  /* ====== CLOSING CTA ====== */
+  .closing{padding:140px 0;background:var(--lime);color:var(--ink);text-align:center;position:relative;overflow:hidden}
+  .closing::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1200px;height:1200px;border-radius:50%;border:1px solid #00000010;pointer-events:none}
+  .closing::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;border:1px solid #00000010;pointer-events:none}
+  .closing-inner{position:relative;z-index:2}
+  .closing h2{font-size:clamp(60px,10vw,160px);margin-bottom:22px;line-height:0.9}
+  .closing h2 .acc{color:var(--burn);font-style:italic;font-weight:600}
+  .closing p{font-size:21px;max-width:560px;margin:0 auto 32px;line-height:1.45;color:var(--ink-2)}
+  .closing .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+
+  /* ====== FOOTER ====== */
+  .foot{padding:60px 0 40px;background:var(--ink);color:#bdb4a0}
+  .foot-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid #ffffff14}
+  .foot-top h4{font-family:"JetBrains Mono",monospace;font-size:11px;color:#7a7560;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px}
+  .foot-top ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .foot-top a{font-size:14px;color:#e6e0cc}
+  .foot-top a:hover{color:var(--lime)}
+  .foot-brand p{font-size:13px;margin-top:14px;max-width:280px;line-height:1.55}
+  .foot-bot{margin-top:24px;display:flex;align-items:center;font-size:12px;color:#7a7560}
+  .foot-bot .right{margin-left:auto;display:flex;gap:18px}
+
+  @media (max-width:960px){
+    .nav-links{display:none}
+    .stats-grid{grid-template-columns:1fr 1fr;gap:24px}
+    .stat{padding:18px 0;border-left:none;border-top:1px solid var(--line)}
+    .stat:first-child{border-top:none}
+    .pain-list,.how-grid,.show-grid,.testi-grid,.compare-grid,.feat-grid,.foot-top{grid-template-columns:1fr}
+    .feat.span-2,.feat.span-3,.feat.span-4,.feat.span-6,.quote.span-2{grid-column:span 1}
+    .chip{display:none}
+    .faq-inner{grid-template-columns:1fr;gap:32px}
+    .faq h2{position:static}
+    .hero-stage{height:auto}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">
+      <span class="brand-mark"><span></span></span>
+      Creedom
+    </a>
+    <div class="nav-links">
+      <a href="#powers">Superpowers</a>
+      <a href="#how">How it works</a>
+      <a href="#creators">Creators</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-ghost btn-sm" href="#">Log in</a>
+      <a class="btn btn-ink btn-sm" href="#">Get 30 free credits <span class="arrow">→</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+
+<style>
+/* STAN HERO SPECIFIC STYLES */
+.stan-hero {
+  background: linear-gradient(135deg, #7C3AED 0%, #4C1D95 100%);
+  padding: 160px 0 100px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+}
+.stan-hero-inner {
+  display: flex; align-items: center; gap: 60px;
+}
+.hero-text {
+  flex: 1; max-width: 600px; z-index: 2;
+}
+.hero-text h1 {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-size: 64px; font-weight: 900; line-height: 1.1; letter-spacing: -0.02em;
+  margin-bottom: 24px; color: #fff;
+}
+.hero-text p {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 22px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,0.9);
+  margin-bottom: 40px;
+}
+.btn-neon {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #00ffa3; color: #000;
+  font-weight: 800; font-size: 18px; padding: 16px 36px;
+  border-radius: 999px; transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer; border: none; white-space: nowrap; font-family: "Space Grotesk", sans-serif; text-decoration: none;
+}
+.btn-neon:hover {
+  background: #00e693; transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,255,163,0.3);
+}
+
+.hero-visual {
+  flex: 1; position: relative; z-index: 2; display: flex; justify-content: center;
+}
+.phone-mockup {
+  width: 320px; height: 640px; background: #000; border-radius: 48px;
+  padding: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+  transform: rotate(5deg);
+}
+.phone-screen-stan {
+  background: #fff; width: 100%; height: 100%; border-radius: 36px;
+  overflow: hidden; position: relative; display: flex; flex-direction: column;
+}
+.notch {
+  position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+  width: 120px; height: 28px; background: #000; border-radius: 14px; z-index: 10;
+}
+.phone-ui {
+  padding: 60px 24px 24px; background: #fafafa; flex: 1; display: flex; flex-direction: column; color: #0f172a;
+}
+.ui-avatar {
+  width: 80px; height: 80px; background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+  border-radius: 50%; padding: 4px; margin: 0 auto 16px;
+}
+.ui-avatar-inner {
+  width: 100%; height: 100%; background: #111; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; color: #fff;
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 900; font-size: 28px;
+}
+.ui-card {
+  background: #fff; border-radius: 20px; padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05); border: 1px solid #f1f5f9;
+  margin-bottom: 24px; text-align: left;
+}
+.ui-btn {
+  background: #00ffa3; color: #000; font-weight: 800; font-family: "Bricolage Grotesque", sans-serif;
+  text-align: center; padding: 16px; border-radius: 16px; font-size: 18px;
+  margin-top: auto;
+}
+.cta-strip-stan {
+  background: #0f172a; color: #fff; padding: 40px 0; text-align: center; display: flex; justify-content: center; align-items: center; gap: 32px; margin-top: 80px;
+}
+.cta-strip-stan h2 { font-family: "Bricolage Grotesque", sans-serif; font-size: 32px; font-weight: 700; margin: 0;}
+@media (max-width: 960px) {
+  .stan-hero-inner { flex-direction: column; text-align: center; }
+  .cta-strip-stan { flex-direction: column; gap: 16px; }
+}
+</style>
+
+<header class="stan-hero">
+  <div class="wrap stan-hero-inner">
+    <div class="hero-text">
+      <h1>Your AI Growth Coach for Instagram</h1>
+      <p>We work 1-on-1 with you to grow your Instagram audience, rewrite your hooks, and turn viewers into loyal followers.</p>
+      <a href="#" class="btn-neon">Get 30 Credits Free</a>
+    </div>
+    
+    <div class="hero-visual">
+      <div class="phone-mockup">
+        <div class="phone-screen-stan">
+          <div class="notch"></div>
+          <div class="phone-ui">
+            <div style="text-align: center; margin-bottom: 32px;">
+              <div class="ui-avatar">
+                <div class="ui-avatar-inner">C</div>
+              </div>
+              <div style="font-size: 20px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #0f172a;">@creator</div>
+              <div style="font-size: 13px; font-weight: 700; color: #64748b; margin-top: 4px;">AI Growth Coach Active</div>
+            </div>
+            
+            <div class="ui-card">
+              <div style="font-size: 11px; font-weight: 800; color: #7C3AED; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Audit Complete</div>
+              <div style="font-weight: 700; font-family: 'Bricolage Grotesque', sans-serif; font-size: 18px; color: #0f172a; margin-bottom: 12px;">Hook Rewrite Suggested</div>
+              <div style="background: #f8fafc; padding: 12px; border-radius: 12px; font-size: 14px; font-style: italic; font-weight: 500; color: #475569; border: 1px solid #e2e8f0; line-height: 1.4;">
+                "I tracked 90 mornings. Here's what actually worked for my Instagram growth."
+              </div>
+            </div>
+            
+            <div class="ui-btn">+58% Follower Growth</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============ TRUST TICKER ============ -->
+<section class="trust">
+  <div class="trust-track">
+    <span>62,871 CREATORS</span><span class="dot">●</span>
+    <span>11.3M VIDEOS COACHED</span><span class="dot">●</span>
+    <span>INSTAGRAM</span><span class="dot">●</span>
+    <span>4.9★ FROM 4,200 REVIEWS</span><span class="dot">●</span>
+    <span>OFFICIAL META &amp; YOUTUBE PARTNER</span><span class="dot">●</span>
+    <span>62,871 CREATORS</span><span class="dot">●</span>
+    <span>11.3M VIDEOS COACHED</span><span class="dot">●</span>
+    <span>INSTAGRAM</span><span class="dot">●</span>
+    <span>4.9★ FROM 4,200 REVIEWS</span><span class="dot">●</span>
+    <span>OFFICIAL META &amp; YOUTUBE PARTNER</span><span class="dot">●</span>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="big">62,871</div><div class="lab">video creators using Creedom daily</div></div>
+    <div class="stat"><div class="big">11.3M</div><div class="lab">videos audited &amp; coached this year</div></div>
+    <div class="stat"><div class="big">+218K</div><div class="lab">avg follower growth, 90 days in</div></div>
+    <div class="stat"><div class="big">6 min</div><div class="lab">from signup to your first audit</div></div>
+  </div>
+</section>
+
+<div class="cta-strip-stan">
+  <h2>Ready to grow your Instagram?</h2>
+  <a href="#" class="btn-neon" style="padding: 12px 28px; font-size: 16px;">Get Started Free</a>
+</div>
+
+<!-- ============ PAIN ============ -->
+<section class="pain" data-screen-label="02 Pain">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#9c9685">Be honest</div>
+    <h2 class="display" style="margin-top:16px">Posting on vibes.<br/>Watching <span class="acc">it die.</span></h2>
+    <div class="pain-list">
+      <div class="pain-item"><span class="x">×</span> You post on a hunch, then refresh views for an hour</div>
+      <div class="pain-item"><span class="x">×</span> Editing eats your whole Sunday</div>
+      <div class="pain-item"><span class="x">×</span> The idea well runs dry by Wednesday</div>
+      <div class="pain-item"><span class="x">×</span> Six AI tabs open. None of them know your channel.</div>
+      <div class="pain-item"><span class="x">×</span> Views drop. You blame the algorithm. (Maybe.)</div>
+      <div class="pain-item"><span class="x">×</span> Burnout, then a silent three-week gap</div>
+    </div>
+    <div class="pain-cta">
+      <p>One coach. Every step. Built for video.</p>
+      <a class="btn btn-lime" href="#">Try Creedom free <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip-stan">
+  <h2>Ready to grow your Instagram?</h2>
+  <a href="#" class="btn-neon" style="padding: 12px 28px; font-size: 16px;">Get Started Free</a>
+</div>
+
+<!-- ============ FEATURES ============ -->
+<section class="features" id="powers" data-screen-label="03 Superpowers">
+  <div class="wrap">
+    <div class="feat-head">
+      <div class="eyebrow">Seven superpowers</div>
+      <h2 class="display">Everything a video creator needs.<br/><span class="acc">Nothing they don't.</span></h2>
+      <p>Most AI tools do one trick. Creedom is a full-stack growth companion — from the spark of an idea to the post-mortem on a flop.</p>
+    </div>
+
+    <div class="feat-grid">
+
+      <!-- Cree Chat - hero -->
+      <div class="feat span-4 bg-ink">
+        <span class="tag">01 · CHAT</span>
+        <h3>An AI that actually watched your last 30 videos.</h3>
+        <p>Cree remembers your niche, your tone, the hook you reused in March that flopped. Ask anything — title ideas, why retention dropped, how to repurpose a long-form to a Reel. Get answers like a brutally honest friend who paid attention.</p>
+        <div class="vis vis-chat">
+          <span class="b them">Why did retention drop at 0:08?</span>
+          <span class="b me">Hook overpromised. Payoff lands at 0:31 — too late. Move it to 0:06.</span>
+          <span class="b them">Rewrite the hook.</span>
+        </div>
+      </div>
+
+      <!-- Audit -->
+      <div class="feat span-2 bg-burn">
+        <span class="tag">02 · AUDIT</span>
+        <h3>Surgical, honest feedback.</h3>
+        <p>Frame-by-frame scoring on hook, pacing, audio &amp; CTA.</p>
+        <div class="vis vis-score">
+          <div class="grade"><b>B−</b><small>Solid bones. Hook leaks viewers in first 3 sec.</small></div>
+        </div>
+      </div>
+
+      <!-- Scripts -->
+      <div class="feat span-2 bg-paper">
+        <span class="tag">03 · SCRIPTS</span>
+        <h3>Scripts in your voice.</h3>
+        <p>Hooks trained on what <em>your</em> audience finishes — not generic templates.</p>
+        <div class="vis vis-script">
+          <div class="h">// HOOK · 0:00–0:03</div>
+          <div><span class="hk">"I tracked 90 mornings."</span></div>
+          <div class="h" style="margin-top:8px">// BEAT · 0:03–0:09</div>
+          <div>Here's what actually worked.</div>
+        </div>
+      </div>
+
+      <!-- Ideas -->
+      <div class="feat span-2 bg-plum">
+        <span class="tag">04 · IDEAS</span>
+        <h3>Trends, tuned to your niche.</h3>
+        <p>Not "what's trending" — what's trending <em>and</em> your audience will click.</p>
+        <div class="vis vis-ideas">
+          <div class="row">The 5-min morning that beats the 50-min one<b>PEAK · 48HR</b></div>
+          <div class="row">What I unlearned from gurus<b>+220% NICHE FIT</b></div>
+        </div>
+      </div>
+
+      <!-- Growth -->
+      <div class="feat span-2 bg-paper">
+        <span class="tag">05 · GROWTH MAP</span>
+        <h3>A roadmap to your next 100k.</h3>
+        <p>Weekly post quotas pulled from your performance, not a template.</p>
+        <div class="vis vis-graph">
+          <div class="eyebrow">SUBSCRIBERS · 16-WEEK FORECAST</div>
+          <svg viewBox="0 0 280 100" preserveAspectRatio="none" style="margin-top:10px;flex:1">
+            <defs><linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#e85d2c" stop-opacity="0.35"/><stop offset="100%" stop-color="#e85d2c" stop-opacity="0"/></linearGradient></defs>
+            <path d="M0,82 L35,76 L70,68 L105,55 L140,46 L175,32 L210,22 L245,12 L280,4 L280,100 L0,100 Z" fill="url(#g1)"/>
+            <path d="M0,82 L35,76 L70,68 L105,55 L140,46 L175,32 L210,22 L245,12 L280,4" stroke="#0d0c0a" stroke-width="2" fill="none"/>
+            <circle cx="245" cy="12" r="4" fill="#e85d2c"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Edit -->
+      <div class="feat span-2 bg-lime">
+        <span class="tag">06 · EDIT BRIEF</span>
+        <h3>Pro editor in your pocket.</h3>
+        <p>Timestamped cuts. B-roll prompts. Ready to hand off.</p>
+        <div class="vis vis-edit">
+          <div><span class="ts">00:02</span> <span class="cut">CUT</span>trim "umm"</div>
+          <div><span class="ts">00:06</span> insert B-roll</div>
+          <div><span class="ts">00:09</span> <span class="cut">CUT</span>tighten 1.2s</div>
+          <div><span class="ts">00:14</span> zoom 110%</div>
+          <div><span class="ts">00:28</span> CTA → 0:31</div>
+        </div>
+      </div>
+
+      <!-- Brain Twin -->
+      <div class="feat span-4 bg-sky">
+        <span class="tag">07 · BRAIN TWIN</span>
+        <h3>The longer you use it, the more it sounds like you.</h3>
+        <p>Every audit, script, win and flop trains your private Brain Twin — a model of your creator identity. After week three, the drafts stop sounding like AI and start sounding like the version of you on your sharpest day.</p>
+        <div class="vis vis-twin"><div class="orb"></div></div>
+      </div>
+
+      <!-- DMs (bonus) -->
+      <div class="feat span-2 bg-paper">
+        <span class="tag">08 · INBOX</span>
+        <h3>Reply to fans as you.</h3>
+        <p>Comment &amp; DM drafts in your voice. Approve, or fire and forget.</p>
+        <div class="vis vis-chat" style="background:var(--paper-2)">
+          <span class="b them" style="background:#fff;color:var(--ink);font-size:11px">"loved this!! more pls 🙏"</span>
+          <span class="b me" style="background:var(--ink);color:var(--paper);font-size:11px">Glad it landed — what part hit?</span>
+          <span class="b them" style="background:#fff;color:var(--ink);font-size:11px">"the 0:31 bit"</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display:flex;justify-content:center;margin-top:48px">
+      <a class="btn btn-ink" href="#">Unlock all 7 — free for 30 credits <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how" id="how" data-screen-label="04 How">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#3a342a">3 steps</div>
+    <h2 class="display" style="margin-top:14px">From signup to your first viral hook in <em style="font-style:italic;font-weight:600">6 minutes.</em></h2>
+    <p class="sub">No upload. No setup hell. Just paste a handle and start.</p>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="num">01</div>
+        <h3>Drop your handle.</h3>
+        <p>Cree pulls your last 30 posts in under 4 minutes. Connect for live audits, or just paste a link — your call.</p>
+        <div class="nb">⏱ ~ 60 sec</div>
+      </div>
+      <div class="how-step">
+        <div class="num">02</div>
+        <h3>Get your report card.</h3>
+        <p>A brutally honest grade on hooks, pacing, retention and CTA — plus three rewritten hooks in your voice and one "post this next" idea.</p>
+        <div class="nb">⏱ ~ 4 min</div>
+      </div>
+      <div class="how-step">
+        <div class="num">03</div>
+        <h3>Post, learn, repeat.</h3>
+        <p>30 free credits on the house. By the time they're gone, Cree knows your voice well enough to feel less like a tool and more like a co-founder.</p>
+        <div class="nb">⏱ from day one</div>
+      </div>
+    </div>
+    <div class="how-cta">
+      <a class="btn btn-ink" href="#">Start free · 30 credits <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip-stan">
+  <h2>Ready to grow your Instagram?</h2>
+  <a href="#" class="btn-neon" style="padding: 12px 28px; font-size: 16px;">Get Started Free</a>
+</div>
+
+<!-- ============ CREATOR SHOWCASE ============ -->
+<section class="show" id="creators" data-screen-label="05 Creators">
+  <div class="wrap">
+    <div class="show-head">
+      <div>
+        <div class="eyebrow">Real creators</div>
+        <h2 class="display" style="margin-top:14px">From plateau to <em style="font-style:italic;font-weight:600;color:var(--burn)">post-it-Tuesday-do-380k.</em></h2>
+      </div>
+      <p>Three creators. Three niches. Same coach. We didn't pay them — they pay $19/mo. Here's what changed.</p>
+    </div>
+
+    <div class="show-grid">
+      <div class="show-card">
+        <div class="photo a"><div class="ph-label">creator photo · maya</div></div>
+        <div class="body">
+          <div class="who"><b>Maya Okafor</b> · @mayabuildsapps · Instagram</div>
+          <div class="quote">"A year of flops. Then one <em>hook rewrite.</em> Tuesday's video did 380k."</div>
+          <div class="nums">
+            <div class="n"><b>+47k</b><small>subs · 90d</small></div>
+            <div class="n"><b>4.2×</b><small>avg views</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="show-card">
+        <div class="photo b"><div class="ph-label">creator photo · devon</div></div>
+        <div class="body">
+          <div class="who"><b>Devon Hsu</b> · @devhsu · Instagram</div>
+          <div class="quote">"The Brain Twin sounded gimmicky. Three weeks in, scripts sound like <em>me</em> on a good day."</div>
+          <div class="nums">
+            <div class="n"><b>11.3M</b><small>views · 30d</small></div>
+            <div class="n"><b>−6 hrs</b><small>per script</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="show-card">
+        <div class="photo c"><div class="ph-label">creator photo · priya</div></div>
+        <div class="body">
+          <div class="who"><b>Priya Ramanathan</b> · @priyaplates · Instagram</div>
+          <div class="quote">"Solo. Two kids. Cree said <em>post this.</em> I trusted it. Right 3× in a row."</div>
+          <div class="nums">
+            <div class="n"><b>+218k</b><small>followers</small></div>
+            <div class="n"><b>9 hrs</b><small>saved/wk</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;display:flex;justify-content:center">
+      <a class="btn btn-burn" href="#">Join 62,871 creators <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON ============ -->
+<section class="compare" data-screen-label="06 Compare">
+  <div class="wrap">
+    <div class="eyebrow">Creedom vs. winging it</div>
+    <h2 class="display" style="margin-top:14px">Two ways to grow.<br/><span class="acc">One of them works.</span></h2>
+    <div class="compare-grid">
+      <div class="compare-col bad">
+        <h3>Without Creedom</h3>
+        <ul>
+          <li><span class="mk">×</span>Scroll FYP for "research" until 1am</li>
+          <li><span class="mk">×</span>Post on vibes. Refresh views.</li>
+          <li><span class="mk">×</span>Stitch six AI tools that don't speak</li>
+          <li><span class="mk">×</span>Stare at retention graph. Cope.</li>
+          <li><span class="mk">×</span>Run dry. Disappear for three weeks.</li>
+          <li><span class="mk">×</span>Restart. From zero. Again.</li>
+        </ul>
+      </div>
+      <div class="compare-col good">
+        <h3>With Creedom <span class="pill">5× faster</span></h3>
+        <ul>
+          <li><span class="mk">✓</span>Open Cree. See what to post today.</li>
+          <li><span class="mk">✓</span>Script in your voice in 90 seconds</li>
+          <li><span class="mk">✓</span>One coach. Audit, ideas, scripts, edits.</li>
+          <li><span class="mk">✓</span>Post-mortem on every video, automatic.</li>
+          <li><span class="mk">✓</span>A roadmap to your next 100k.</li>
+          <li><span class="mk">✓</span>Compound, quietly. Show up consistently.</li>
+        </ul>
+      </div>
+    </div>
+    <div style="margin-top:36px;display:flex;justify-content:center">
+      <a class="btn btn-ink" href="#">Switch sides — free <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS WALL ============ -->
+<section class="testi" data-screen-label="07 Wall">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Creators love Cree</div>
+    <h2 class="display" style="margin-top:14px">The growth you wanted<br/>is what they're <span class="acc">getting.</span></h2>
+    <div class="testi-grid">
+      <div class="quote q-burn big span-2">
+        <div class="stars" style="color:#fff;font-size:14px">★★★★★</div>
+        <p>"The first AI tool I've actually missed when it's down. It's not a script generator — it's a coach who watched my flops and tells me, with receipts, why the next one won't be."</p>
+        <div class="who"><div class="ava" style="background:linear-gradient(135deg,#fff,#ffd9c8)"></div><div><b>Jasmine Lo</b><small>@jasminecodes · 412k subs</small></div></div>
+      </div>
+
+      <div class="quote q-paper">
+        <div class="stars">★★★★★</div>
+        <p>"Cree audited 20 Reels on a Sunday night. Tuesday did 380k. I'm not making it up."</p>
+        <div class="who"><div class="ava"></div><div><b>Maya Okafor</b><small>Instagram · @mayabuildsapps</small></div></div>
+      </div>
+
+      <div class="quote q-ink">
+        <div class="stars" style="color:var(--lime)">★★★★★</div>
+        <p>"My editor uses the timestamped notes directly. Saves me a 30-min Loom every Sunday."</p>
+        <div class="who"><div class="ava" style="background:linear-gradient(135deg,#d8ff3a,#7ea918)"></div><div><b>Tomás Esquivel</b><small style="color:#9c9685">@tomasruns · IG</small></div></div>
+      </div>
+
+      <div class="quote q-lime">
+        <p>"Three weeks in, the scripts sound like me on a good day."</p>
+        <div class="who"><div class="ava" style="background:linear-gradient(135deg,#5a2a8a,#1a0a3a)"></div><div><b>Devon Hsu</b><small>Instagram · @devhsu</small></div></div>
+      </div>
+
+      <div class="quote q-plum">
+        <div class="stars" style="color:#fff">★★★★★</div>
+        <p>"I'm a solo creator with two kids. I do not have time for another dashboard. This one earns its keep."</p>
+        <div class="who"><div class="ava" style="background:linear-gradient(135deg,#fff,#ffd9c8)"></div><div><b>Priya Ramanathan</b><small>IG · @priyaplates</small></div></div>
+      </div>
+
+      <div class="quote q-paper">
+        <div class="stars">★★★★★</div>
+        <p>"It told me to cut 1.4 seconds at 0:06. I cut it. Retention up 32%. Wild."</p>
+        <div class="who"><div class="ava" style="background:linear-gradient(135deg,#5e8bff,#1a3a8a)"></div><div><b>Kai Branson</b><small>Instagram · @kaibranson</small></div></div>
+      </div>
+
+      <div class="quote q-ink">
+        <div class="stars" style="color:var(--lime)">★★★★★</div>
+        <p>"Honestly thought it was just another wrapper. It remembers everything I post. Now I plan my week with it on Sunday morning."</p>
+        <div class="who"><div class="ava" style="background:linear-gradient(135deg,#e85d2c,#a83910)"></div><div><b>Nora Ellsworth</b><small style="color:#9c9685">@noraonpurpose · IG</small></div></div>
+      </div>
+
+      <div class="quote q-paper">
+        <div class="stars">★★★★★</div>
+        <p>"Killed my 4 other AI subs. Cree just does the whole job."</p>
+        <div class="who"><div class="ava" style="background:linear-gradient(135deg,#1f8a5b,#0e3d28)"></div><div><b>Sam Mendes</b><small>Instagram · @sambuilds</small></div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+      <a class="btn btn-ink" href="#">Read 600+ reviews <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#">Or just try it free</a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip-stan">
+  <h2>Ready to grow your Instagram?</h2>
+  <a href="#" class="btn-neon" style="padding: 12px 28px; font-size: 16px;">Get Started Free</a>
+</div>
+
+<!-- ============ PRICING ============ -->
+<section class="price" id="pricing" data-screen-label="08 Pricing">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#9c9685">Pricing</div>
+    <h2 class="display" style="margin-top:14px">Start with <span class="acc">30 free credits.</span><br/>Pay when you've grown.</h2>
+    <p class="sub">No card on signup. Every plan includes Cree, audits, scripts, ideas, edit briefs and the Brain Twin.</p>
+
+    <div class="price-card">
+      <span class="tier">Creator · most popular</span>
+      <h3>Pro</h3>
+      <div class="row">
+        <span class="big">$19</span>
+        <span class="strike">$29</span>
+        <span class="per">/ month</span>
+      </div>
+      <div class="micro">ANNUAL · 33% OFF · CANCEL ANIGIME</div>
+      <ul>
+        <li>Unlimited Cree chat &amp; audits</li>
+        <li>Scripts &amp; hook rewrites in your voice</li>
+        <li>Daily resonating-idea engine</li>
+        <li>Timestamped edit briefs &amp; B-roll prompts</li>
+        <li>Brain Twin trained on your channel</li>
+        <li>DM &amp; comment drafts</li>
+        <li>Instagram — all in one</li>
+      </ul>
+      <a class="btn btn-lime" href="#">Try Pro free for 7 days <span class="arrow">→</span></a>
+    </div>
+
+    <div class="price-foot">
+      Or stay free forever. 30 credits, no card, no timer. <a href="#" style="border-bottom:1px solid #9c9685;color:#f6f1e3">See all plans →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq" id="faq" data-screen-label="09 FAQ">
+  <div class="wrap faq-inner">
+    <div>
+      <div class="eyebrow">Asked a lot</div>
+      <h2 class="display" style="margin-top:14px">Everything else<br/>you're <span class="acc">wondering.</span></h2>
+      <p style="font-size:14px;color:var(--muted);margin-top:18px;line-height:1.5;max-width:300px">Can't find it? Just ask Cree at <a href="#" style="border-bottom:1px solid var(--ink)">app.creedom.ai</a>.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item" open>
+        <summary>Is it really free? <span class="sign">+</span></summary>
+        <div class="answer">Yes. 30 credits on signup. No card. No trial timer. Audit videos, generate scripts, chat with Cree — without paying. Most creators upgrade around week three, when the credits run out and the muscle memory has set in. The free credits never expire.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Who is Creedom for? <span class="sign">+</span></summary>
+        <div class="answer">Video creators trying to grow on Instagram, Instagram or Instagram. Especially: solo creators building a personal brand, talk-based and educational creators (face-to-camera), social commerce creators turning content into sales, and anyone stuck on a growth plateau.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How is it different from ChatGPT? <span class="sign">+</span></summary>
+        <div class="answer">ChatGPT writes captions. Creedom watches your actual content, learns what worked for <em>your</em> audience, and tells you what to do next. A coach across the whole workflow — feedback, ideas, scripts, edits, replies — not a one-off generator.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do I have to connect my socials? <span class="sign">+</span></summary>
+        <div class="answer">No — but you'll get more out of it if you do. Connecting unlocks performance audits, retention analysis and personalised ideas. Creedom is an official Meta &amp; Instagram partner. Read-only. Revoke anytime.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Will it make me go viral? <span class="sign">+</span></summary>
+        <div class="answer">No one can promise virality. What we promise: sharper hooks, better retention, consistent shipping. Most creators see meaningful traction within 3–4 weeks of daily use.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does it work in non-English? <span class="sign">+</span></summary>
+        <div class="answer">24+ languages including Spanish, Portuguese, Hindi, French, German, Tagalog and Bahasa. The Brain Twin adapts to your native voice — not a translated one.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I cancel? <span class="sign">+</span></summary>
+        <div class="answer">Anytime, in one click. No "talk to support." No retention call. We'd rather you leave clean and come back later than feel trapped.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CLOSING ============ -->
+<section class="closing" data-screen-label="10 CTA">
+  <div class="wrap closing-inner">
+    <div class="eyebrow" style="color:#3a342a">Your move</div>
+    <h2 class="display" style="margin-top:14px">Make the next video<br/>your <span class="acc">biggest one.</span></h2>
+    <p>30 free credits. No card. Cree's already waiting — it just needs your handle.</p>
+    <div class="ctas">
+      <a class="btn btn-ink" href="#">Start free with 30 credits <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#">Talk to a human</a>
+    </div>
+    <div style="display:inline-flex;align-items:center;gap:12px;font-size:13px;color:var(--ink-2);justify-content:center">
+      <div class="ava-stack"><span></span><span></span><span></span><span></span></div>
+      <span><b>62,871 creators</b> · 4.9★ · Instagram</span>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip-stan">
+  <h2>Ready to grow your Instagram?</h2>
+  <a href="#" class="btn-neon" style="padding: 12px 28px; font-size: 16px;">Get Started Free</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <div class="brand" style="color:#f6f1e3"><span class="brand-mark"><span></span></span> Creedom</div>
+        <p>The AI growth coach built only for video creators. Instagram, Instagram, Instagram — one place to think, script and ship.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul><li><a href="#">Chat with Cree</a></li><li><a href="#">Audits</a></li><li><a href="#">Scripts</a></li><li><a href="#">Brain Twin</a></li><li><a href="#">Pricing</a></li></ul>
+      </div>
+      <div>
+        <h4>Creators</h4>
+        <ul><li><a href="#">For Instagram</a></li><li><a href="#">For Instagram</a></li><li><a href="#">For Instagram</a></li><li><a href="#">Creator stories</a></li></ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="#">About</a></li><li><a href="#">Blog</a></li><li><a href="#">Careers</a></li><li><a href="#">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li><li><a href="#">Refunds</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Creedom AI</span>
+      <div class="right"><a href="#">Instagram</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
