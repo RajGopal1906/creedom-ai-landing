@@ -133,7 +133,7 @@
   .stat .lab{font-size:14px;color:var(--muted);margin-top:10px;line-height:1.3;max-width:200px}
 
   /* ====== "DOES THIS SOUND LIKE YOU" ====== */
-  .pain{padding:120px 0;background:var(--ink);color:var(--paper);text-align:center}
+  .pain{padding:80px 0;background:var(--ink);color:var(--paper);text-align:center}
   .pain h2{font-size:clamp(48px,7vw,96px);max-width:980px;margin:0 auto}
   .pain h2 .acc{color:var(--burn)}
   .pain-list{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1000px;margin:60px auto 0}
@@ -143,7 +143,7 @@
   .pain-cta p{font-size:21px;color:#d9d3c1;margin-bottom:20px}
 
   /* ====== FEATURES — BIG BLOCKS ====== */
-  .features{padding:140px 0}
+  .features{padding:80px 0}
   .feat-head{text-align:center;margin-bottom:60px}
   .feat-head .eyebrow{margin-bottom:18px}
   .feat-head h2{font-size:clamp(48px,7vw,96px);max-width:980px;margin:0 auto 18px}
@@ -205,7 +205,7 @@
   .how-cta{margin-top:56px}
 
   /* ====== CREATOR SHOWCASE ====== */
-  .show{padding:120px 0}
+  .show{padding:80px 0}
   .show-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:48px;flex-wrap:wrap}
   .show-head h2{font-size:clamp(44px,5.5vw,72px);max-width:700px}
   .show-head p{font-size:16px;color:var(--muted);max-width:380px;line-height:1.5}
@@ -226,7 +226,7 @@
   .show-card .nums .n small{font-size:11px;color:var(--muted);font-family:"JetBrains Mono",monospace;letter-spacing:0.08em;text-transform:uppercase}
 
   /* ====== COMPARISON ====== */
-  .compare{padding:120px 0;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .compare{padding:80px 0;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .compare h2{font-size:clamp(48px,6vw,80px);max-width:780px;margin-bottom:48px}
   .compare h2 .acc{color:var(--burn);font-style:italic;font-weight:600}
   .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
@@ -244,7 +244,7 @@
   .compare-col.good li .mk{color:var(--lime)}
 
   /* ====== TESTIMONIALS WALL ====== */
-  .testi{padding:140px 0}
+  .testi{padding:80px 0}
   .testi h2{font-size:clamp(48px,6vw,84px);max-width:880px;margin-bottom:60px;text-align:center;margin-left:auto;margin-right:auto}
   .testi h2 .acc{color:var(--burn);font-style:italic;font-weight:600}
   .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -263,7 +263,7 @@
   .quote.span-2{grid-column:span 2}
 
   /* ====== PRICING TEASER ====== */
-  .price{padding:140px 0;background:var(--ink);color:var(--paper);text-align:center}
+  .price{padding:80px 0;background:var(--ink);color:var(--paper);text-align:center}
   .price h2{font-size:clamp(48px,7vw,96px);max-width:880px;margin:0 auto 18px}
   .price h2 .acc{color:var(--lime)}
   .price p.sub{font-size:19px;color:#d9d3c1;max-width:560px;margin:0 auto 56px;line-height:1.5}
@@ -283,7 +283,7 @@
   .price-foot{margin-top:24px;font-size:13px;color:#9c9685}
 
   /* ====== FAQ ====== */
-  .faq{padding:140px 0}
+  .faq{padding:80px 0}
   .faq-inner{display:grid;grid-template-columns:1fr 1.5fr;gap:80px;align-items:flex-start}
   .faq h2{font-size:clamp(48px,6vw,72px);position:sticky;top:120px}
   .faq h2 .acc{color:var(--burn);font-style:italic;font-weight:600}
@@ -296,7 +296,7 @@
   .faq-item .answer{margin-top:14px;color:var(--ink-2);font-size:16px;line-height:1.55;max-width:640px}
 
   /* ====== CLOSING CTA ====== */
-  .closing{padding:140px 0;background:var(--lime);color:var(--ink);text-align:center;position:relative;overflow:hidden}
+  .closing{padding:80px 0;background:var(--lime);color:var(--ink);text-align:center;position:relative;overflow:hidden}
   .closing::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1200px;height:1200px;border-radius:50%;border:1px solid #00000010;pointer-events:none}
   .closing::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;border-radius:50%;border:1px solid #00000010;pointer-events:none}
   .closing-inner{position:relative;z-index:2}
@@ -359,7 +359,10 @@
 /* STAN HERO SPECIFIC STYLES */
 .stan-hero {
   background: linear-gradient(135deg, #7C3AED 0%, #4C1D95 100%);
-  padding: 160px 0 100px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -432,7 +435,7 @@
   margin-top: auto;
 }
 .cta-strip-stan {
-  background: #0f172a; color: #fff; padding: 40px 0; text-align: center; display: flex; justify-content: center; align-items: center; gap: 32px; margin-top: 80px;
+  background: #0f172a; color: #fff; padding: 40px 0; text-align: center; display: flex; justify-content: center; align-items: center; gap: 32px; margin-top: 0px;
 }
 .cta-strip-stan h2 { font-family: "Bricolage Grotesque", sans-serif; font-size: 32px; font-weight: 700; margin: 0;}
 @media (max-width: 960px) {
@@ -455,8 +458,12 @@
           <div class="notch"></div>
           <div class="phone-ui">
             <div style="text-align: center; margin-bottom: 32px;">
-              <div class="ui-avatar">
-                <div class="ui-avatar-inner">C</div>
+              <div class="ui-avatar" style="background: transparent; border-radius: 0; padding: 0; margin-bottom: 24px;">
+                <div style="width:80px;height:80px;border-radius:50%;background:var(--ink);position:relative;margin:0 auto;box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+                  <div style="width:12px;height:12px;background:var(--lime);border-radius:50%;position:absolute;top:30px;left:20px;"></div>
+                  <div style="width:12px;height:12px;background:var(--lime);border-radius:50%;position:absolute;top:30px;right:20px;"></div>
+                  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);width:24px;height:6px;background:var(--lime);border-radius:3px;"></div>
+                </div>
               </div>
               <div style="font-size: 20px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; color: #0f172a;">@creator</div>
               <div style="font-size: 13px; font-weight: 700; color: #64748b; margin-top: 4px;">AI Growth Coach Active</div>
@@ -547,7 +554,7 @@
     <div class="feat-grid">
 
       <!-- Cree Chat - hero -->
-      <div class="feat span-4 bg-ink">
+      <div class="feat span-3 bg-ink">
         <span class="tag">01 · CHAT</span>
         <h3>An AI that actually watched your last 30 videos.</h3>
         <p>Cree remembers your niche, your tone, the hook you reused in March that flopped. Ask anything — title ideas, why retention dropped, how to repurpose a long-form to a Reel. Get answers like a brutally honest friend who paid attention.</p>
@@ -593,7 +600,7 @@
       </div>
 
       <!-- Growth -->
-      <div class="feat span-2 bg-paper">
+      <div class="feat span-3 bg-paper">
         <span class="tag">05 · GROWTH MAP</span>
         <h3>A roadmap to your next 100k.</h3>
         <p>Weekly post quotas pulled from your performance, not a template.</p>
@@ -609,7 +616,7 @@
       </div>
 
       <!-- Edit -->
-      <div class="feat span-2 bg-lime">
+      <div class="feat span-3 bg-lime">
         <span class="tag">06 · EDIT BRIEF</span>
         <h3>Pro editor in your pocket.</h3>
         <p>Timestamped cuts. B-roll prompts. Ready to hand off.</p>
@@ -623,26 +630,14 @@
       </div>
 
       <!-- Brain Twin -->
-      <div class="feat span-4 bg-sky">
+      <div class="feat span-3 bg-sky">
         <span class="tag">07 · BRAIN TWIN</span>
         <h3>The longer you use it, the more it sounds like you.</h3>
         <p>Every audit, script, win and flop trains your private Brain Twin — a model of your creator identity. After week three, the drafts stop sounding like AI and start sounding like the version of you on your sharpest day.</p>
         <div class="vis vis-twin"><div class="orb"></div></div>
       </div>
 
-      <!-- DMs (bonus) -->
-      <div class="feat span-2 bg-paper">
-        <span class="tag">08 · INBOX</span>
-        <h3>Reply to fans as you.</h3>
-        <p>Comment &amp; DM drafts in your voice. Approve, or fire and forget.</p>
-        <div class="vis vis-chat" style="background:var(--paper-2)">
-          <span class="b them" style="background:#fff;color:var(--ink);font-size:11px">"loved this!! more pls 🙏"</span>
-          <span class="b me" style="background:var(--ink);color:var(--paper);font-size:11px">Glad it landed — what part hit?</span>
-          <span class="b them" style="background:#fff;color:var(--ink);font-size:11px">"the 0:31 bit"</span>
-        </div>
       </div>
-
-    </div>
 
     <div style="display:flex;justify-content:center;margin-top:48px">
       <a class="btn btn-ink" href="#">Unlock all 7 — on your free trial <span class="arrow">→</span></a>
