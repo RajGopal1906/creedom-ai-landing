@@ -219,7 +219,7 @@
   .show-card .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
   .show-card .who{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
   .show-card .who b{font-size:16px;color:var(--ink);font-weight:600}
-  .show-card .quote{font-family:"Bricolage Grotesque";font-size:22px;font-weight:500;letter-spacing:-0.01em;line-height:1.2}
+  .show-card .quote{display:block;font-family:"Bricolage Grotesque";font-size:22px;font-weight:500;letter-spacing:-0.01em;line-height:1.2}
   .show-card .quote em{font-style:italic;color:var(--burn)}
   .show-card .nums{display:flex;gap:18px;padding-top:14px;border-top:1px solid var(--line);margin-top:auto}
   .show-card .nums .n b{font-family:"Bricolage Grotesque";font-size:22px;font-weight:700;letter-spacing:-0.02em;display:block;line-height:1}
@@ -232,12 +232,12 @@
   .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
   .compare-col{padding:36px;border-radius:var(--r-lg)}
   .compare-col.bad{background:#fff;border:1px solid var(--line)}
-  .compare-col.good{background:var(--ink);color:var(--paper)}
+  .compare-col.good{background:var(--lime);color:var(--ink);border:2px solid var(--lime);box-shadow:0 0 40px rgba(214, 255, 58, 0.4);transform:scale(1.02);}
   .compare-col h3{font-family:"Bricolage Grotesque";font-size:28px;font-weight:600;letter-spacing:-0.02em;margin-bottom:24px;display:flex;align-items:center;gap:10px}
   .compare-col.good h3 .pill{background:var(--lime);color:var(--ink);font-size:11px;padding:3px 9px;border-radius:var(--r-pill);font-weight:600;letter-spacing:0.04em}
   .compare-col ul{list-style:none;display:flex;flex-direction:column;gap:2px}
   .compare-col li{padding:14px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:14px;font-size:16px;line-height:1.4}
-  .compare-col.good li{border-bottom-color:#ffffff14}
+  .compare-col.good li{border-bottom-color:rgba(0,0,0,0.1)}
   .compare-col li:last-child{border-bottom:none}
   .compare-col li .mk{flex-shrink:0;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:13px;width:22px;text-align:center;padding-top:2px}
   .compare-col.bad li .mk{color:var(--burn)}
@@ -348,7 +348,7 @@
     </div>
     <div class="nav-cta">
       <a class="btn btn-ghost btn-sm" href="#">Log in</a>
-      <a class="btn btn-ink btn-sm" href="#">Get 30 free credits <span class="arrow">→</span></a>
+      <a class="btn btn-ink btn-sm" href="#">Get free trial <span class="arrow">→</span></a>
     </div>
   </div>
 </nav>
@@ -445,8 +445,8 @@
   <div class="wrap stan-hero-inner">
     <div class="hero-text">
       <h1>Your AI Growth Coach for Instagram</h1>
-      <p>We work 1-on-1 with you to grow your Instagram audience, rewrite your hooks, and turn viewers into loyal followers.</p>
-      <a href="#" class="btn-neon">Get 30 Credits Free</a>
+      <p>The AI app that works alongside you to grow your Instagram audience, rewrite your hooks, and turn viewers into loyal followers.</p>
+      <a href="#" class="btn-neon">Start Free Trial</a>
     </div>
     
     <div class="hero-visual">
@@ -500,7 +500,7 @@
   <div class="wrap stats-grid">
     <div class="stat"><div class="big">62,871</div><div class="lab">video creators using Creedom daily</div></div>
     <div class="stat"><div class="big">11.3M</div><div class="lab">videos audited &amp; coached this year</div></div>
-    <div class="stat"><div class="big">+218K</div><div class="lab">avg follower growth, 90 days in</div></div>
+    
     <div class="stat"><div class="big">6 min</div><div class="lab">from signup to your first audit</div></div>
   </div>
 </section>
@@ -540,7 +540,7 @@
   <div class="wrap">
     <div class="feat-head">
       <div class="eyebrow">Seven superpowers</div>
-      <h2 class="display">Everything a video creator needs.<br/><span class="acc">Nothing they don't.</span></h2>
+      <h2 class="display">Everything an Instagram creator needs.</h2>
       <p>Most AI tools do one trick. Creedom is a full-stack growth companion — from the spark of an idea to the post-mortem on a flop.</p>
     </div>
 
@@ -572,7 +572,7 @@
       <div class="feat span-2 bg-paper">
         <span class="tag">03 · SCRIPTS</span>
         <h3>Scripts in your voice.</h3>
-        <p>Hooks trained on what <em>your</em> audience finishes — not generic templates.</p>
+        <p>Hooks trained on what <em style="display:inline; white-space:normal;">your</em> audience finishes — not generic templates.</p>
         <div class="vis vis-script">
           <div class="h">// HOOK · 0:00–0:03</div>
           <div><span class="hk">"I tracked 90 mornings."</span></div>
@@ -585,7 +585,7 @@
       <div class="feat span-2 bg-plum">
         <span class="tag">04 · IDEAS</span>
         <h3>Trends, tuned to your niche.</h3>
-        <p>Not "what's trending" — what's trending <em>and</em> your audience will click.</p>
+        <p>Not "what's trending" — what's trending <em style="display:inline; white-space:normal;">and</em> your audience will click.</p>
         <div class="vis vis-ideas">
           <div class="row">The 5-min morning that beats the 50-min one<b>PEAK · 48HR</b></div>
           <div class="row">What I unlearned from gurus<b>+220% NICHE FIT</b></div>
@@ -645,7 +645,7 @@
     </div>
 
     <div style="display:flex;justify-content:center;margin-top:48px">
-      <a class="btn btn-ink" href="#">Unlock all 7 — free for 30 credits <span class="arrow">→</span></a>
+      <a class="btn btn-ink" href="#">Unlock all 7 — on your free trial <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -672,12 +672,12 @@
       <div class="how-step">
         <div class="num">03</div>
         <h3>Post, learn, repeat.</h3>
-        <p>30 free credits on the house. By the time they're gone, Cree knows your voice well enough to feel less like a tool and more like a co-founder.</p>
+        <p>free trial on the house. By the time they're gone, Cree knows your voice well enough to feel less like a tool and more like a co-founder.</p>
         <div class="nb">⏱ from day one</div>
       </div>
     </div>
     <div class="how-cta">
-      <a class="btn btn-ink" href="#">Start free · 30 credits <span class="arrow">→</span></a>
+      <a class="btn btn-ink" href="#">Start free trial <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -693,7 +693,7 @@
     <div class="show-head">
       <div>
         <div class="eyebrow">Real creators</div>
-        <h2 class="display" style="margin-top:14px">From plateau to <em style="font-style:italic;font-weight:600;color:var(--burn)">post-it-Tuesday-do-380k.</em></h2>
+        <h2 class="display" style="margin-top:14px">From plateau to <em style="font-style:italic;font-weight:600;color:var(--burn)">consistent-predictable-growth.</em></h2>
       </div>
       <p>Three creators. Three niches. Same coach. We didn't pay them — they pay $19/mo. Here's what changed.</p>
     </div>
@@ -703,7 +703,7 @@
         <div class="photo a"><div class="ph-label">creator photo · maya</div></div>
         <div class="body">
           <div class="who"><b>Maya Okafor</b> · @mayabuildsapps · Instagram</div>
-          <div class="quote">"A year of flops. Then one <em>hook rewrite.</em> Tuesday's video did 380k."</div>
+          <div class="quote">"A year of flops. Then one <em style="display:inline; white-space:normal;">hook rewrite.</em> Tuesday's video blew up."</div>
           <div class="nums">
             <div class="n"><b>+47k</b><small>subs · 90d</small></div>
             <div class="n"><b>4.2×</b><small>avg views</small></div>
@@ -715,7 +715,7 @@
         <div class="photo b"><div class="ph-label">creator photo · devon</div></div>
         <div class="body">
           <div class="who"><b>Devon Hsu</b> · @devhsu · Instagram</div>
-          <div class="quote">"The Brain Twin sounded gimmicky. Three weeks in, scripts sound like <em>me</em> on a good day."</div>
+          <div class="quote">"The Brain Twin sounded gimmicky. Three weeks in, scripts sound like <em style="display:inline; white-space:normal;">me</em> on a good day."</div>
           <div class="nums">
             <div class="n"><b>11.3M</b><small>views · 30d</small></div>
             <div class="n"><b>−6 hrs</b><small>per script</small></div>
@@ -727,9 +727,9 @@
         <div class="photo c"><div class="ph-label">creator photo · priya</div></div>
         <div class="body">
           <div class="who"><b>Priya Ramanathan</b> · @priyaplates · Instagram</div>
-          <div class="quote">"Solo. Two kids. Cree said <em>post this.</em> I trusted it. Right 3× in a row."</div>
+          <div class="quote">"Solo. Two kids. Cree said <em style="display:inline; white-space:normal;">post this.</em> I trusted it. Right 3× in a row."</div>
           <div class="nums">
-            <div class="n"><b>+218k</b><small>followers</small></div>
+            <div class="n"><b>9 hrs</b><small>saved</small></div>
             <div class="n"><b>9 hrs</b><small>saved/wk</small></div>
           </div>
         </div>
@@ -791,7 +791,7 @@
 
       <div class="quote q-paper">
         <div class="stars">★★★★★</div>
-        <p>"Cree audited 20 Reels on a Sunday night. Tuesday did 380k. I'm not making it up."</p>
+        <p>"Cree audited 20 Reels on a Sunday night. Tuesday blew up. I'm not making it up."</p>
         <div class="who"><div class="ava"></div><div><b>Maya Okafor</b><small>Instagram · @mayabuildsapps</small></div></div>
       </div>
 
@@ -847,7 +847,7 @@
 <section class="price" id="pricing" data-screen-label="08 Pricing">
   <div class="wrap">
     <div class="eyebrow" style="color:#9c9685">Pricing</div>
-    <h2 class="display" style="margin-top:14px">Start with <span class="acc">30 free credits.</span><br/>Pay when you've grown.</h2>
+    <h2 class="display" style="margin-top:14px">Start with <span class="acc">free trial.</span><br/>Pay when you've grown.</h2>
     <p class="sub">No card on signup. Every plan includes Cree, audits, scripts, ideas, edit briefs and the Brain Twin.</p>
 
     <div class="price-card">
@@ -872,7 +872,7 @@
     </div>
 
     <div class="price-foot">
-      Or stay free forever. 30 credits, no card, no timer. <a href="#" style="border-bottom:1px solid #9c9685;color:#f6f1e3">See all plans →</a>
+      Or stay free forever. Free trial, no card, no timer. <a href="#" style="border-bottom:1px solid #9c9685;color:#f6f1e3">See all plans →</a>
     </div>
   </div>
 </section>
@@ -888,7 +888,7 @@
     <div class="faq-list">
       <details class="faq-item" open>
         <summary>Is it really free? <span class="sign">+</span></summary>
-        <div class="answer">Yes. 30 credits on signup. No card. No trial timer. Audit videos, generate scripts, chat with Cree — without paying. Most creators upgrade around week three, when the credits run out and the muscle memory has set in. The free credits never expire.</div>
+        <div class="answer">Yes. Free trial on signup. No card. No trial timer. Audit videos, generate scripts, chat with Cree — without paying. Most creators upgrade around week three, when the credits run out and the muscle memory has set in. The free credits never expire.</div>
       </details>
       <details class="faq-item">
         <summary>Who is Creedom for? <span class="sign">+</span></summary>
@@ -896,7 +896,7 @@
       </details>
       <details class="faq-item">
         <summary>How is it different from ChatGPT? <span class="sign">+</span></summary>
-        <div class="answer">ChatGPT writes captions. Creedom watches your actual content, learns what worked for <em>your</em> audience, and tells you what to do next. A coach across the whole workflow — feedback, ideas, scripts, edits, replies — not a one-off generator.</div>
+        <div class="answer">ChatGPT writes captions. Creedom watches your actual content, learns what worked for <em style="display:inline; white-space:normal;">your</em> audience, and tells you what to do next. A coach across the whole workflow — feedback, ideas, scripts, edits, replies — not a one-off generator.</div>
       </details>
       <details class="faq-item">
         <summary>Do I have to connect my socials? <span class="sign">+</span></summary>
@@ -923,9 +923,9 @@
   <div class="wrap closing-inner">
     <div class="eyebrow" style="color:#3a342a">Your move</div>
     <h2 class="display" style="margin-top:14px">Make the next video<br/>your <span class="acc">biggest one.</span></h2>
-    <p>30 free credits. No card. Cree's already waiting — it just needs your handle.</p>
+    <p>free trial. No card. Cree's already waiting — it just needs your handle.</p>
     <div class="ctas">
-      <a class="btn btn-ink" href="#">Start free with 30 credits <span class="arrow">→</span></a>
+      <a class="btn btn-ink" href="#">Start your free trial <span class="arrow">→</span></a>
       <a class="btn btn-ghost" href="#">Talk to a human</a>
     </div>
     <div style="display:inline-flex;align-items:center;gap:12px;font-size:13px;color:var(--ink-2);justify-content:center">
