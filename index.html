@@ -71,11 +71,11 @@
   .hero .below{display:inline-flex;align-items:center;gap:14px;font-size:13px;color:var(--muted);justify-content:center;flex-wrap:wrap}
   .ava-stack{display:flex}
   .ava-stack span{width:32px;height:32px;border-radius:50%;border:3px solid var(--paper);margin-left:-10px}
-  .ava-stack span:nth-child(1){margin-left:0;background:url("https://i.pravatar.cc/100?img=47") center/cover;}
-  .ava-stack span:nth-child(2){background:url("https://i.pravatar.cc/100?img=12") center/cover;}
-  .ava-stack span:nth-child(3){background:url("https://i.pravatar.cc/100?img=33") center/cover;}
-  .ava-stack span:nth-child(4){background:url("https://i.pravatar.cc/100?img=68") center/cover;}
-  .ava-stack span:nth-child(5){background:url("https://i.pravatar.cc/100?img=44") center/cover;}
+  .ava-stack span:nth-child(1){margin-left:0;background:linear-gradient(135deg,#e85d2c,#a83910)}
+  .ava-stack span:nth-child(2){background:linear-gradient(135deg,#5a2a8a,#2a0f4a)}
+  .ava-stack span:nth-child(3){background:linear-gradient(135deg,#d6ff3a,#7ea918)}
+  .ava-stack span:nth-child(4){background:linear-gradient(135deg,#5e8bff,#1a3a8a)}
+  .ava-stack span:nth-child(5){background:linear-gradient(135deg,#1f8a5b,#0e3d28)}
   .stars{color:var(--burn);letter-spacing:1px;font-size:16px}
 
   /* Hero artifact — phone + side cards */
@@ -212,9 +212,9 @@
   .show-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
   .show-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column}
   .show-card .photo{aspect-ratio:1.2;background:repeating-linear-gradient(45deg,var(--paper-2),var(--paper-2) 6px,var(--paper) 6px,var(--paper) 12px);position:relative;display:flex;align-items:flex-end;padding:18px;color:var(--ink)}
-  .show-card .photo.a{background:url("https://i.pravatar.cc/300?img=47") center/cover;}
-  .show-card .photo.b{background:url("https://i.pravatar.cc/300?img=12") center/cover;}
-  .show-card .photo.c{background:url("https://i.pravatar.cc/300?img=33") center/cover;}
+  .show-card .photo.a{background-image:linear-gradient(135deg,#ffd9c8 0%,#ff9870 100%)}
+  .show-card .photo.b{background-image:linear-gradient(135deg,#d8ff8a 0%,#5e8b3a 100%)}
+  .show-card .photo.c{background-image:linear-gradient(135deg,#c4a8ff 0%,#5a2a8a 100%)}
   .show-card .photo .ph-label{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:5px 9px;border-radius:4px}
   .show-card .body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1}
   .show-card .who{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--muted)}
@@ -671,60 +671,7 @@
 
 
 
-<!-- ============ CREATOR SHOWCASE ============ -->
-<section class="show" id="creators" data-screen-label="05 Creators">
-  <div class="wrap">
-    <div class="show-head">
-      <div>
-        <div class="eyebrow">Real creators</div>
-        <h2 class="display" style="margin-top:14px">From plateau to <em style="font-style:italic;font-weight:600;color:var(--burn)">consistent-predictable-growth.</em></h2>
-      </div>
-      <p>Three creators. Three niches. Same coach. We didn't pay them — they pay $19/mo. Here's what changed.</p>
-    </div>
 
-    <div class="show-grid">
-      <div class="show-card">
-        <div class="photo a" style="background:url('https://i.pravatar.cc/300?img=47') center/cover"><div class="ph-label">creator photo · maya</div></div>
-        <div class="body">
-          <div class="who"><b>Maya Okafor</b> · Instagram</div>
-          <div class="quote">"A year of flops. Then one <em style="display:inline; white-space:normal;">hook rewrite.</em> Tuesday's video blew up."</div>
-          <div class="nums">
-            <div class="n"><b>+47k</b><small>followers · 90d</small></div>
-            <div class="n"><b>4.2×</b><small>avg reach</small></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="show-card">
-        <div class="photo b" style="background:url('https://i.pravatar.cc/300?img=12') center/cover"><div class="ph-label">creator photo · devon</div></div>
-        <div class="body">
-          <div class="who"><b>Devon Hsu</b> · Instagram</div>
-          <div class="quote">"The Brain Twin sounded gimmicky. Three weeks in, scripts sound like <em style="display:inline; white-space:normal;">me</em> on a good day."</div>
-          <div class="nums">
-            <div class="n"><b>11.3M</b><small>plays · 30d</small></div>
-            <div class="n"><b>−6 hrs</b><small>per script</small></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="show-card">
-        <div class="photo c" style="background:url('https://i.pravatar.cc/300?img=33') center/cover"><div class="ph-label">creator photo · priya</div></div>
-        <div class="body">
-          <div class="who"><b>Priya Ramanathan</b> · Instagram</div>
-          <div class="quote">"Solo. Two kids. Cree said <em style="display:inline; white-space:normal;">post this.</em> I trusted it. Right 3× in a row."</div>
-          <div class="nums">
-            <div class="n"><b>3×</b><small>posting rate</small></div>
-            <div class="n"><b>9 hrs</b><small>saved/wk</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:24px;display:flex;justify-content:center">
-      <a class="btn btn-burn" href="#">Join 62,871 creators <span class="arrow">→</span></a>
-    </div>
-  </div>
-</section>
 
 <!-- ============ COMPARISON ============ -->
 <section class="compare" data-screen-label="06 Compare">
@@ -761,7 +708,66 @@
   </div>
 </section>
 
+<!-- ============ TESTIMONIALS WALL ============ -->
+<section class="testi" data-screen-label="07 Wall">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">Creators love Cree</div>
+    <h2 class="display" style="margin-top:14px">The growth you wanted<br/>is what they're <span class="acc">getting.</span></h2>
+    <div class="testi-grid">
+      <div class="quote q-burn big span-2">
+        
+        <p>"The first AI tool I've actually missed when it's down. It's not a script generator — it's a coach who watched my flops and tells me, with receipts, why the next one won't be."</p>
+        <div class="who"><div class="ava" style="background:url('https://i.pravatar.cc/100?img=47') center/cover"></div><div><b>Jasmine Lo</b><small>412k subs</small></div></div>
+      </div>
 
+      <div class="quote q-paper">
+        
+        <p>"Cree audited 20 Reels on a Sunday night. Tuesday blew up. I'm not making it up."</p>
+        <div class="who"><div class="ava" style="background:url('https://i.pravatar.cc/100?img=12') center/cover"></div><div><b>Maya Okafor</b><small>Instagram Creator</small></div></div>
+      </div>
+
+      <div class="quote q-ink">
+        
+        <p>"My editor uses the timestamped notes directly. Saves me a 30-min Loom every Sunday."</p>
+        <div class="who"><div class="ava" style="background:url('https://i.pravatar.cc/100?img=33') center/cover"></div><div><b>Tomás Esquivel</b><small style="color:#9c9685">Instagram Creator</small></div></div>
+      </div>
+
+      <div class="quote q-lime">
+        <p>"Three weeks in, the scripts sound like me on a good day."</p>
+        <div class="who"><div class="ava" style="background:url('https://i.pravatar.cc/100?img=68') center/cover"></div><div><b>Devon Hsu</b><small>Instagram Creator</small></div></div>
+      </div>
+
+      <div class="quote q-plum">
+        
+        <p>"I'm a solo creator with two kids. I do not have time for another dashboard. This one earns its keep."</p>
+        <div class="who"><div class="ava" style="background:url('https://i.pravatar.cc/100?img=44') center/cover"></div><div><b>Priya Ramanathan</b><small>Instagram Creator</small></div></div>
+      </div>
+
+      <div class="quote q-paper">
+        
+        <p>"It told me to cut 1.4 seconds at 0:06. I cut it. Retention up 32%. Wild."</p>
+        <div class="who"><div class="ava" style="background:url('https://i.pravatar.cc/100?img=22') center/cover"></div><div><b>Kai Branson</b><small>Instagram Creator</small></div></div>
+      </div>
+
+      <div class="quote q-ink">
+        
+        <p>"Honestly thought it was just another wrapper. It remembers everything I post. Now I plan my week with it on Sunday morning."</p>
+        <div class="who"><div class="ava" style="background:url('https://i.pravatar.cc/100?img=16') center/cover"></div><div><b>Nora Ellsworth</b><small style="color:#9c9685">Instagram Creator</small></div></div>
+      </div>
+
+      <div class="quote q-paper">
+        
+        <p>"Killed my 4 other AI subs. Cree just does the whole job."</p>
+        <div class="who"><div class="ava" style="background:url('https://i.pravatar.cc/100?img=59') center/cover"></div><div><b>Sam Mendes</b><small>Instagram Creator</small></div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap">
+      <a class="btn btn-ink" href="#">Read 600+ reviews <span class="arrow">→</span></a>
+      <a class="btn btn-ghost" href="#">Or just try it free</a>
+    </div>
+  </div>
+</section>
 
 
 
@@ -852,7 +858,7 @@
     </div>
     <div style="display:inline-flex;align-items:center;gap:12px;font-size:13px;color:var(--ink-2);justify-content:center">
       <div class="ava-stack"><span></span><span></span><span></span><span></span></div>
-      <span><b>62,871 creators</b> · Instagram</span>
+      <span><b>62,871 creators</b> · 4.9★ · Instagram</span>
     </div>
   </div>
 </section>
